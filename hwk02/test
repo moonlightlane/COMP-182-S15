@@ -1,0 +1,33 @@
+'''
+COMP 182 S15
+Homework 2 TEST FILE
+Author: Zichao Wang
+'''
+from collections import deque
+import sys
+sys.path.append("/Users/zichaowang/Dropbox/RICE/year spring 15/COMP 182")
+import provided
+import comp182
+
+
+# test of compute_flow
+import modified_bfs
+import compute_flow
+import bookgraphs
+fig3_18g = {'A': set(['B', 'C', 'D', 'E']),
+            'B': set(['A', 'C', 'F']),
+            'C': set(['A', 'B', 'F']),
+            'D': set(['A', 'G', 'H']),
+            'E': set(['A', 'H']),
+            'F': set(['B', 'C', 'I']),
+            'G': set(['D', 'I', 'J']),
+            'H': set(['D', 'E', 'J']),
+            'I': set(['F', 'G', 'K']),
+            'J': set(['G', 'H', 'K']),
+            'K': set(['I', 'J'])}
+dist, npaths = modified_bfs.bfs(fig3_18g,'A')
+flow = compute_flow.compute_flow(fig3_18g,dist,npaths)
+print flow
+
+# test of partition algorithm
+import 
